@@ -56,8 +56,7 @@ func (r *cwReporter) SpecDidComplete(spec *types.SpecSummary) {
 	case types.SpecStatePassed:
 		fmt.Println("\n<PASSED::>Test Passed")
 	case types.SpecStateFailed:
-		fmt.Println("\n<FAILED::>Test Failed")
-		fmt.Printf("\n<LOG:ESC:>%s\n", escape(spec.Failure.Message))
+		fmt.Printf("\n<FAILED::>%s\n", escape(spec.Failure.Message))
 	case types.SpecStatePanicked:
 		fmt.Printf("\n<ERROR::>%s\n", escape(spec.Failure.Message))
 		fmt.Printf("\n<LOG::Panic>%s\n", escape(spec.Failure.ForwardedPanic))
